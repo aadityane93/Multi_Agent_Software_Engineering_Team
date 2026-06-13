@@ -193,6 +193,7 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "fastapi", extra = ["standard"] },
+    { name = "google-genai" },
     { name = "httpx" },
     { name = "langgraph" },
     { name = "mcp", extra = ["cli"] },
@@ -211,6 +212,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "fastapi", extras = ["standard"], specifier = ">=0.136.3" },
+    { name = "google-genai", specifier = ">=2.7.0" },
     { name = "httpx", specifier = ">=0.28.1" },
     { name = "langgraph", specifier = ">=1.2.2" },
     { name = "mcp", extras = ["cli"], specifier = ">=1.27.2" },
