@@ -46,9 +46,15 @@ async def generate_with_ollama(prompt: str) -> str:
             },
         ],
         "stream": False,
+        "options": {
+            "temperature": 0.2,
+            "num_predict": settings.ollama_num_predict,
+        },
     }
 
-    async with httpx.AsyncClient(timeout=180) as client:
+    timeout = httpx.Timeout(settings.ollama_timeout_seconds)
+
+    async with httpx.AsyncClient(timeout=timeout) as client:
         response = await client.post(url, json=payload)
         response.raise_for_status()
         data = response.json()
